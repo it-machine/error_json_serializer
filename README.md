@@ -45,6 +45,32 @@ HTTP 404 (Not found)
 }
 ```
 
+Also possible to use in model validation errors:
+```ruby
+@user = User.new(user_params)
+if @user.save
+    # render your OK responce
+else
+    validate_errors_serialize(@user.errors)
+end
+```
+Result(example):
+HTTP 409 (Conflict)
+```json
+{
+  "errors": [
+    {
+      "id": "email",
+      "title": "Email has already been taken."
+    },
+    {
+      "id": "telephone",
+      "title": "Telephone has already been taken."
+    }
+  ]
+}
+```
+
 Available methods refer to the [wiki](https://github.com/Strollager/error_json_serializer/wiki)
 
 ## Contributing
