@@ -1,6 +1,6 @@
 # JsonErrorSerializer
 
-This gem provides a simple way to respond API errors messages from Ruby applications.
+This gem provides a simple way to respond API errors messages with correct HTTP responces from Ruby On Rails applications.
 
 ## Installation
 
