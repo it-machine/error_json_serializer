@@ -1,36 +1,55 @@
 # JsonErrorSerializer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/JsonErrorSerializer`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provides a simple way to respond API errors messages from Ruby applications.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'JsonErrorSerializer'
+gem 'json_error_serializer'
 ```
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
-    $ gem install JsonErrorSerializer
+    $ gem install json_error_serializer
 
 ## Usage
 
-Description
+In your controller:
+```ruby
+respond_404
+```
 
-## Development
+```ruby
+respond_404('User not found')
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Result:
+HTTP 404 (Not found)
+```json
+{
+  "status": "404",
+  "message": "Not found"
+}
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```json
+{
+  "status": "404",
+  "message": "User not found"
+}
+```
+
+Available methods refer to the [wiki](https://github.com/Strollager/error_json_serializer/wiki)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/JsonErrorSerializer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Strollager/error_json_serializer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
