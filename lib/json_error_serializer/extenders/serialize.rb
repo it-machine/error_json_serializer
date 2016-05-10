@@ -3,7 +3,7 @@ module JsonErrorSerializer
 
     module Serialize
 
-      def self.serialize(errors)
+      def self.serialize(errors, options = {})
         return if errors.nil?
 
         json = {}
@@ -15,6 +15,11 @@ module JsonErrorSerializer
         end.flatten
 
         json[:errors] = new_hash
+
+        if options.present?
+          json[options[:key]] = options[:value]
+        end
+
         json
       end
 

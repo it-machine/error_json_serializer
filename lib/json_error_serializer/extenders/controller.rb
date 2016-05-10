@@ -3,8 +3,8 @@ module JsonErrorSerializer
 
     module Controller
 
-      def validate_errors_serialize(errors)
-        render json: JsonErrorSerializer::Extenders::Serialize.serialize(errors), status: :conflict
+      def validate_errors_serialize(errors, options = {})
+        render json: JsonErrorSerializer::Extenders::Serialize.serialize(errors, options), status: :conflict
       end
 
       def respond_200(message = nil)
